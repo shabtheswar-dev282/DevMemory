@@ -22,7 +22,7 @@ This repository is Deny Shabtheswar's BSc (Hons) Computer Science final-year pro
 
 ## Environment
 - Windows 11, VS Code with the Claude Code extension, PowerShell.
-- Node.js 24 (LTS; see D11), TypeScript, MCP TypeScript SDK 1.30, Vitest 4, PostgreSQL 16 in Docker Compose (no native PostgreSQL), Python 3.12 (embedding service and analysis, later).
+- Node.js 24 (LTS; see D11), TypeScript, MCP TypeScript SDK 1.32 (see D12), Vitest 4, PostgreSQL 16 in Docker Compose (no native PostgreSQL), Python 3.12 (embedding service and analysis, later).
 - Docker Desktop must be running before `docker compose up -d`.
 
 ## Commands
