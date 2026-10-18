@@ -20,9 +20,9 @@ Rules for every milestone: all tests pass; nothing in `memory_events` is ever up
 
 ## 2. M0 Setup (17 to 20 Oct)
 
-The user installs tools (Git, Node.js 22, Python 3.12, Docker Desktop with WSL 2, Cursor). Claude Code then does the rest from VS Code:
+The user installs tools (Git, Node.js 24 LTS (D11), Python 3.12, Docker Desktop with WSL 2, Cursor). Claude Code then does the rest from VS Code:
 
-1. Check versions: `git --version`, `node -v` (22.x), `npm -v`, `python --version` (3.12), `docker --version`, `docker compose version`.
+1. Check versions: `git --version`, `node -v` (24.x), `npm -v`, `python --version` (3.12), `docker --version`, `docker compose version`.
 2. In `DevMemory/`: `npm install`, copy `.env.example` to `.env`, `docker compose up -d` (PostgreSQL 16 in Docker; no native PostgreSQL), `npm run db:migrate`, `npm test` (13 tests pass), `npm run demo` (full MCP round trip).
 3. `git init`, `.gitattributes` with `* text=auto eol=lf`, first commit "Import proof of concept". Publish to GitHub as a **private** repository (VS Code Source Control: Publish Branch). The user clicks the publish button.
 4. Connect both agents to the **same** server and the **same** database:
