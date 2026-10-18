@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "devmemory": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["node_modules/tsx/dist/cli.mjs", "src/index.ts"],
+      "env": {
+        "DATABASE_URL": "postgres://postgres:devmemory@localhost:5432/devmemory"
+      }
+    }
+  }
+}

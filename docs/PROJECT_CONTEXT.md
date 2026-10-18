@@ -80,7 +80,7 @@ NFR6 one-command setup with Docker Compose (S); NFR7 dashboard WCAG 2.2 AA (S); 
 - Baselines: last-write-wins and recency-weighted (CRDT / deterministic).
 - Benchmark harness: seeded repositories, scripted two-agent histories, injected conflicts and repeat failures; runs C0-C3 + A1.
 - Dashboard: React + Vite (TypeScript), read-only. Analysis: Python 3.12 (pandas, SciPy, Matplotlib). Tests: Vitest 4.
-- Runtime: Node.js 22, TypeScript; Docker Compose; Git/GitHub; Zotero, Word, draw.io for writing.
+- Runtime: Node.js 24 LTS (changed from 22 on 18 Oct 2026, D11), TypeScript; Docker Compose; Git/GitHub; Zotero, Word, draw.io for writing.
 - Hardware: 16 GB RAM, 8-core CPU, 256 GB SSD; GPU optional. Metered costs: LLM API (capped), AI client plans.
 - Hardest part: telling a genuine contradiction from a refinement or deliberate supersession in free text by different agents.
 
@@ -140,6 +140,10 @@ Build sources in scratchpad/pp: build_deck_v2.js, refs.js, build_map.py, tools/*
 - Presentation script: word-for-word script plus short cue cards per slide; about 18 minutes of speaking to leave margin in the 20.
 - Formative evidence pack for the supervisor: prepare on 18 Oct (due Mon 19 Oct).
 - Architecture: three layers (presentation, functionality, database), docs/architecture/DevMemory_Architecture.drawio/.png.
+
+## Decisions of 18 Oct 2026
+- Runtime is Node.js 24 LTS, not 22 (D11): the laptop already had v24.13.1; 24 is supported until April 2028, past the final viva,
+  while 22 reaches end-of-life on 30 Apr 2027. The deck/PPRS tech-stack line and the architecture PNG still say 22 and need updating.
 
 ## Open (ask, do not assume)
 - Ethics form: waiting for the UoW form. Need Part B, exemplar consent form and information sheet, Code of Practice; applicant/supervisor details; interview specifics.

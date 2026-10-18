@@ -163,3 +163,17 @@ export function buildMcpServer(memory: MemoryService): McpServer {
 
   return server;
 }
+
+/**
+ * Logs the name and version the client sends in the MCP handshake
+ * (`clientInfo`) once initialisation completes. Logged as JSON so the
+ * exact strings are visible; stderr only, because stdout carries the
+ * protocol. M0 uses this to read what Claude Code and Cursor send,
+ * which M1.1 maps to normalised actors.
+ */
+export function logClientOnConnect(server: McpServer, log: (message: string) => void = console.error): void {
+  server.server.oninitialized = () => {
+    const client = server.server.getClientVersion();
+    log(`[devmemory] client connected: ${JSON.stringify({ name: client?.name, version: client?.version })}`);
+  };
+}
