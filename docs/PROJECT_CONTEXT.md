@@ -72,7 +72,7 @@ NFR6 one-command setup with Docker Compose (S); NFR7 dashboard WCAG 2.2 AA (S); 
 
 ## Architecture and technology (final choices)
 - Writers: Claude Code and Cursor over MCP (two vendors), plus a scripted MCP client for deterministic replay.
-- MCP server (TypeScript, official MCP SDK 1.30) -> MemoryService -> EventRepository port -> PostgreSQL adapter (prod) / in-memory adapter (tests).
+- MCP server (TypeScript, official MCP SDK 1.32; was 1.30, D12) -> MemoryService -> EventRepository port -> PostgreSQL adapter (prod) / in-memory adapter (tests).
 - Memory: append-only memory_events log with actor; current state = pure projection function.
 - Component graph: edge table in PostgreSQL (event > file > component), built from commit file paths (Git). Not Neo4j.
 - Semantic signal: all-MiniLM-L6-v2 run locally with Sentence-Transformers; all-mpnet-base-v2 as sensitivity check; TF-IDF as lexical baseline.
@@ -144,6 +144,9 @@ Build sources in scratchpad/pp: build_deck_v2.js, refs.js, build_map.py, tools/*
 ## Decisions of 18 Oct 2026
 - Runtime is Node.js 24 LTS, not 22 (D11): the laptop already had v24.13.1; 24 is supported until April 2028, past the final viva,
   while 22 reaches end-of-life on 30 Apr 2027. The deck/PPRS tech-stack line and the architecture PNG still say 22 and need updating.
+- MCP TypeScript SDK 1.30.0 -> 1.32.1 (D12), from `npm audit fix`: fixes a high-severity SDK advisory (GHSA-6qxp-vccf-f47h, OAuth client)
+  and six advisories in transitive packages. DevMemory does not use the affected parts (OAuth, HTTP transport); the update keeps
+  `npm audit` clean. Deck/PPRS/architecture PNG say "MCP SDK 1.30" and need updating.
 
 ## Open (ask, do not assume)
 - Ethics form: waiting for the UoW form. Need Part B, exemplar consent form and information sheet, Code of Practice; applicant/supervisor details; interview specifics.
